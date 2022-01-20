@@ -1,0 +1,10 @@
+<h1>EDIT TON APPART ICI</h1>
+
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :name, placeholder: "Le nom de l'appart" %>
+  <%= f.input :address, placeholder: "L'adresse de l'appart" %>
+  <%= f.input :description, placeholder: " Les plus de ton appart" %>
+  <%= f.input :price_per_night, placeholder: " Le prix" %>
+  <%= f.input :number_of_guests, placeholder: " Combien de guest possible ? " %>
+  <%= f.submit "Modifier", class: "btn btn-primary" %>
+<% end %>

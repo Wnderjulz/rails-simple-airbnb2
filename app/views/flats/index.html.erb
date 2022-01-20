@@ -1,0 +1,28 @@
+<div class="banner" style="background-image: url(https://source.unsplash.com/1050x200/?flats);">
+  <div class="container">
+    <p><%= link_to "Add flat", new_flat_path, class: 'p-1 mb-2 bg-primary text-white' %></p>
+  </div>
+</div>
+
+<h1 class="p-2">OUR GREAT FLATS</h1>
+
+<div class="d-flex justify-content-around flex-column">
+  <ul class="list-group list-group-horizontal">
+    <% @flats.each do |flat| %>
+      <li class="list-group-item m-4 flex-wrap">
+        <div class="flat">
+          <img src="https://source.unsplash.com/300x200/?flats" alt="flat img">
+          <h3><%= flat.name %></h3>
+          <p><%= flat.description %></p>
+          <p><i class="fa-solid fa-person"></i> <%= flat.number_of_guests %>
+          <i class="fa-solid fa-circle-dollar"></i> <%= flat.price_per_night %>€</p>
+        </div>
+        <div class="links d-flex justify-content-around">
+          <%= link_to "More info", flat_path(flat)%>
+          <%= link_to "Edit", edit_flat_path(flat), class: 'text-warning'%>
+          <%= link_to "Remove", flat_path(flat), method: :delete, data: { confirm: "Sure to delete #{flat.name}?" }, class: 'text-danger' %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
